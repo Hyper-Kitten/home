@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host:     <%= ENV['APP_DB_HOST'] || 'localhost' %>
+  database: <%= ENV['APP_DB_NAME'] %>
+  username: <%= ENV['APP_DB_USERNAME'] || 'root' %>
+  password: <%= ENV['APP_DB_PASSWORD'] || '' %>
+  port: 5432
+
+development:
+  <<: *default
+  database: hyper_kitten_dev
+
+test:
+  <<: *default
+  database: hyper_kitten_test
+
+production:
+  <<: *default
+

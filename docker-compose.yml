@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  db:
+    image: 'postgres:15-alpine'
+    environment:
+      POSTGRES_USER: kitten
+      POSTGRES_PASSWORD: password
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  web:
+    depends_on:
+      - 'db'
+      - 'cssbundler'
+    build: .
+    env_file:
+      - '.env'
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/app'
+
+  cssbundler:
+    build: .
+    environment:
+      - NODE_ENV=development
+      - RAILS_ENV=development
+    command: yarn build:css --watch
+    volumes:
+      - '.:/app'
+
+volumes:
+  pgdata:
