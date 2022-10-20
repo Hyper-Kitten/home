@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_18_160728) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_19_224402) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_160728) do
     t.datetime "updated_at", null: false
     t.index ["label"], name: "index_categorical_tags_on_label", unique: true
     t.index ["slug"], name: "index_categorical_tags_on_slug", unique: true
+  end
+
+  create_table "contact_requests", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "hyper_kitten_meow_menu_items", force: :cascade do |t|

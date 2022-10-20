@@ -1,0 +1,66 @@
+.container
+  .row.py-5.gx-5
+    .col
+      %h3.mb-3 What is a Hyper Kitten?
+      %p.lead We help nonprofits accomplish their mission by providing education, assistance, and management with digital infrastructures and digital marketing.
+      %p.fw-light Making positive change takes organization and communication. These days a large portion of that happens on the web. We're here to help guide you through the impossible number of ways to allocate your resources so that you can maximize your impact through the web. Contact us today for guidance in setting up your non-profit's online presence!
+      = link_to "Contact Us", "/", class: "btn btn-outline-warning btn-lg mt-3"
+    .col.bg-black.bg-opacity-25
+  .row.py-5
+    %h3.mb-3 Let us be your guide
+    %p.lead.mb-3 We can help you with:
+    .col
+      .card.h-100.bg-dark.text-light.border-0
+        %h4.card-title Website Setup
+        %p.small.fw-light Learn how to get a website up and running on a tiny budget. There are an infinite number of ways to get your website up and running and we can help you sort through the options depending on whether you need a few basic pages with a contact form or a completely custom platform.
+    .col
+      .card.h-100.bg-dark.text-light.border-0
+        %h4.card-title Social Media
+        %p.small.fw-light Social media is a must have channel for your nonprofit. Inspiring stories and missions for good tend to share well on social channels and so spending time and money there is often worth while. We can help provide guidance!
+    .col
+      .card.h-100.bg-dark.text-light.border-0
+        %h4.card-title Email Marketing
+        %p.small.fw-light Email marketing is typically the most valuable channel an organization has. Its low cost, efficient, and there's nothing standing in between you and your subscribers. Learn how to build your email list and use free tools you may qualify for as a non profit!
+    .col
+      .card.h-100.bg-dark.text-light.border-0
+        %h4.card-title Education
+        %p.small.fw-light We aim to provide playbooks and educational resources to empower you and your organization to use the web to help accomplish your mission
+  .row.py-5.gx-5
+    .col
+      %h3.mb-3 Send us a message
+      = simple_form_for ContactRequest.new, url: contact_requests_path, method: :post do |f|
+        = f.input :name, label: "Name", placeholder: "Your Name"
+        = f.input :email, label: "Email", placeholder: "Your Email"
+        = f.input :phone, label: "Phone", placeholder: "Your Phone"
+        = f.input :message, label: "Message", placeholder: "Your Message"
+        = f.button :submit, "Send", class: "btn btn-outline-warning btn-lg mt-3"
+    .col
+      %h3.mb-3 We can help!
+      %p.lead.mb-3 We'd love to hear about your non profit.
+      %p.fw-light We know how confusing trying to manage the tech side of your non profit can be in addition to your mission! Its a confusing, necessary piece of the puzzle, but we're here to help. Whether you have no idea where to begin, or are looking for an answer to something specific as where to register your domain name, we can point you in the right direction.
+      %p.fw-light We've been helping small non-profits bootstrap their tech stacks for years and we'd be more than happy to help with yours.
+  .row.py-5
+    .col
+      %h4 Connect with us
+      %ul.list-unstyled
+        %li
+          %i.bi-telephone.me-2
+          610-960-8227
+        %li
+          %i.bi-envelope.me-2
+          %span= mail_to "hello@hyperkitten.org", class: "text-decoration-none text-light"
+    .col
+      %h4 Find us on social media
+      %ul.list-unstyled
+        %li
+          = link_to "https://www.facebook.com/hyperkittenorg", class: "text-decoration-none text-light" do
+            %i.bi-facebook.me-2
+            Facebook
+        %li
+          = link_to "https://twitter.com/hyperkittenorg", class: "text-decoration-none text-light" do
+            %i.bi-twitter.me-2
+            Twitter
+    .col
+      %h4 Recent News
+      %p Coming soon
+

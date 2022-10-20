@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'contact_requests/create'
+  root "pages#show", id: "home"
   mount HyperKittenMeow::Engine, at: "/blog"
   resources :pages, only: [:show]
+  resources :contact_requests, only: [:create]
 end

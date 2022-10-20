@@ -12,17 +12,30 @@
     %base{href: request.base_url}
     = stylesheet_link_tag "application"
     = csrf_meta_tags
-  %body.d-flex.flex-column.h-100
-    %header.bg-light.py-3.mb-3
+  %body.d-flex.flex-column.h-100.bg-dark.text-light
+    %header.bg-light.py-4.bg-dark.text-light
       %nav.navbar.navbar-expand-lg.navbar-light
         .container.d-flex.justify-content-between
-          %h1.navbar-brand= link_to t('title'), '/'
+          = link_to root_path, class: "text-decoration-none" do
+            %h1.text-light.display-4
+              %span.fw-lighter.text-uppercase Hyper
+              %span.fw-semibold.text-uppercase Kitten
           %ul.navbar-nav.mb-2.mb-lg-0
             - main_menu = menu("main-menu")
             - if main_menu.present?
               - main_menu.menu_items.each do |menu_item|
-                %li.nav-item= link_to menu_item.title, (menu_item.page || menu_item.url), target: menu_item.target, class: "nav-link"
+                - if menu_item.page.present?
+                  %li.nav-item= link_to menu_item.title, page_path(menu_item.page), target: menu_item.target, class: "nav-link text-light text-uppercase"
+                - else
+                  %li.nav-item= link_to menu_item.title, menu_item.url, target: menu_item.target, class: "nav-link text-light text-uppercase"
     = yield
-    %footer.footer.mt-auto.py-3.bg-light
-      .container
-        %p= "By #{t('owner')}"
+    %footer.footer.mt-auto.py-3.bg-dark.text-light
+      .container.d-flex.justify-content-between
+        %span= "© #{Time.now.year} #{t('title')}"
+        %ul.nav
+          %li.nav-item
+            = link_to "https://www.facebook.com/hyperkittenorg", class: "text-decoration-none text-light" do
+              %i.bi-facebook.me-2
+          %li.nav-item
+            = link_to "https://twitter.com/hyperkittenorg", class: "text-decoration-none text-light" do
+              %i.bi-twitter.me-2
