@@ -16,8 +16,9 @@
     %header.bg-light.py-4.bg-dark.text-light
       %nav.navbar.navbar-expand-lg.navbar-light
         .container.d-flex.justify-content-between
-          = link_to root_path, class: "text-decoration-none" do
-            %h1.text-light.display-4
+          = link_to root_path, class: "text-decoration-none navbar-brand" do
+            %h1.text-light.display-4.d-flex.align-items-center
+              = image_tag "logo.svg", size: "64", class: "me-2"
               %span.fw-lighter.text-uppercase Hyper
               %span.fw-semibold.text-uppercase Kitten
           %ul.navbar-nav.mb-2.mb-lg-0
@@ -25,9 +26,9 @@
             - if main_menu.present?
               - main_menu.menu_items.each do |menu_item|
                 - if menu_item.page.present?
-                  %li.nav-item= link_to menu_item.title, page_path(menu_item.page), target: menu_item.target, class: "nav-link text-light text-uppercase"
+                  %li.nav-item.ms-2= link_to menu_item.title, page_path(menu_item.page), target: menu_item.target, class: "nav-link text-light text-uppercase"
                 - else
-                  %li.nav-item= link_to menu_item.title, menu_item.url, target: menu_item.target, class: "nav-link text-light text-uppercase"
+                  %li.nav-item.ms-2= link_to menu_item.title, menu_item.url, target: menu_item.target, class: "nav-link text-light text-uppercase"
     = yield
     %footer.footer.mt-auto.py-3.bg-dark.text-light
       .container.d-flex.justify-content-between

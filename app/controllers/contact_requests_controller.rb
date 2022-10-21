@@ -1,4 +1,8 @@
 class ContactRequestsController < ApplicationController
+  def new
+    @contact_request = ContactRequest.new
+  end
+
   def create
     @contact_request = ContactRequest.new(contact_request_params)
     if @contact_request.save
