@@ -30,13 +30,14 @@
                 - else
                   %li.nav-item.ms-2= link_to menu_item.title, menu_item.url, target: menu_item.target, class: "nav-link text-light text-uppercase"
     = yield
-    %footer.footer.mt-auto.py-3.bg-dark.text-light
-      .container.d-flex.justify-content-between
+    %footer.footer.mt-5.py-5.bg-black.text-light.bg-opacity-25
+      .container.d-flex.align-items-center
+        = image_tag "logo.svg", size: "24", class: "me-2"
         %span= "© #{Time.now.year} #{t('title')}"
-        %ul.nav
-          %li.nav-item
-            = link_to "https://www.facebook.com/hyperkittenorg", class: "text-decoration-none text-light" do
-              %i.bi-facebook.me-2
-          %li.nav-item
-            = link_to "https://twitter.com/hyperkittenorg", class: "text-decoration-none text-light" do
-              %i.bi-twitter.me-2
+        -# %ul.nav
+        -#   %li.nav-item
+        -#     = link_to "https://www.facebook.com/hyperkittenorg", class: "text-decoration-none text-light" do
+        -#       %i.bi-facebook.me-2
+        -#   %li.nav-item
+        -#     = link_to "https://twitter.com/hyperkittenorg", class: "text-decoration-none text-light" do
+        -#       %i.bi-twitter.me-2

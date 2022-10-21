@@ -8,7 +8,7 @@ class ContactRequestsController < ApplicationController
     if @contact_request.save
       redirect_to root_path, notice: "Your message has been sent."
     else
-      render :back, alert: "Your message could not be sent.", status: :unprocessable_entity
+      render action: "new"
     end
   end
 

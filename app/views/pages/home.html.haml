@@ -4,7 +4,7 @@
       %h3.mb-3 What is a Hyper Kitten?
       %p.lead We help nonprofits accomplish their mission by providing education, assistance, and management with digital infrastructures and digital marketing.
       %p.fw-light Making positive change takes organization and communication. These days a large portion of that happens on the web. We're here to help guide you through the impossible number of ways to allocate your resources so that you can maximize your impact through the web. Contact us today for guidance in setting up your non-profit's online presence!
-      = link_to "Contact Us", "/", class: "btn btn-outline-warning btn-lg mt-3"
+      = link_to "Contact Us", "#contact-us-form", class: "btn btn-outline-warning btn-lg mt-3"
     .col.bg-black.bg-opacity-25
   .row.py-5
     %h3.mb-3 Let us be your guide
@@ -25,14 +25,14 @@
       .card.h-100.bg-dark.text-light.border-0
         %h4.card-title Education
         %p.small.fw-light We aim to provide playbooks and educational resources to empower you and your organization to use the web to help accomplish your mission
-  .row.py-5.gx-5
+  .row.py-5.gx-5#contact-us-form
     .col
       %h3.mb-3 Send us a message
       = simple_form_for ContactRequest.new, url: contact_requests_path, method: :post do |f|
         = f.input :name, label: "Name", placeholder: "Your Name"
         = f.input :email, label: "Email", placeholder: "Your Email"
         = f.input :phone, label: "Phone", placeholder: "Your Phone"
-        = f.input :message, label: "Message", placeholder: "Your Message"
+        = f.input :message, label: "Message", placeholder: "Your Message", input_html: { rows: 7 }
         = f.button :submit, "Send", class: "btn btn-outline-warning btn-lg mt-3"
     .col
       %h3.mb-3 We can help!
@@ -50,16 +50,12 @@
           %i.bi-envelope.me-2
           %span= mail_to "hello@hyperkitten.org", class: "text-decoration-none text-light"
     .col
-      %h4 Find us on social media
+      %h4 Our Address
       %ul.list-unstyled
-        %li
-          = link_to "https://www.facebook.com/hyperkittenorg", class: "text-decoration-none text-light" do
-            %i.bi-facebook.me-2
-            Facebook
-        %li
-          = link_to "https://twitter.com/hyperkittenorg", class: "text-decoration-none text-light" do
-            %i.bi-twitter.me-2
-            Twitter
+        %li 406 S 4th St
+        %li Sunbury, PA 17801
+        %li United States
+
     .col
       %h4 Recent News
       %p Coming soon
