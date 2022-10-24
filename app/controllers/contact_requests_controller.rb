@@ -6,6 +6,7 @@ class ContactRequestsController < ApplicationController
   def create
     @contact_request = ContactRequest.new(contact_request_params)
     if @contact_request.save
+      NotificationsMailer.contact_request(@contact_request).deliver_now
       redirect_to root_path, notice: "Your message has been sent."
     else
       render action: "new"
