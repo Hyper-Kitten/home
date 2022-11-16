@@ -1,4 +1,13 @@
-%h1= class_name + "#" + @action
+%h1 Hyper Kitten - Contact Request
 
-%p
-  = @greeting + ", find me in app/views/notifications_mailer/contact_request.html.haml"
+%h5 Email
+%p= @contact_request.email
+
+%h5 Name
+%p= @contact_request.name
+
+%h5 Phone
+%p= @contact_request.phone
+
+%h5 Message
+%p= @contact_request.message

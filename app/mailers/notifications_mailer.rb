@@ -1,13 +1,7 @@
 class NotificationsMailer < ApplicationMailer
+  def contact_request(contact_request)
+    @contact_request = contact_request
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.notifications_mailer.contact_request.subject
-  #
-  def contact_request
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    mail to: @contact_request.email, subject: "Contact Request From Hyper Kitten"
   end
 end

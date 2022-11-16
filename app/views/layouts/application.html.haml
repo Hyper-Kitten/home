@@ -26,9 +26,9 @@
             - if main_menu.present?
               - main_menu.menu_items.each do |menu_item|
                 - if menu_item.page.present?
-                  %li.nav-item.ms-2= link_to menu_item.title, page_path(menu_item.page), target: menu_item.target, class: "nav-link text-light text-uppercase"
+                  %li.nav-item.ms-2= link_to menu_item.title, page_path(menu_item.page), target: menu_item.target, class: "nav-link text-light"
                 - else
-                  %li.nav-item.ms-2= link_to menu_item.title, menu_item.url, target: menu_item.target, class: "nav-link text-light text-uppercase"
+                  %li.nav-item.ms-2= link_to menu_item.title, menu_item.url, target: menu_item.target, class: "nav-link text-light"
     = yield
     %footer.footer.mt-5.py-5.bg-black.text-light.bg-opacity-25
       .container.d-flex.align-items-center
