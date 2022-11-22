@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Hyper-Kitten/meow.git
-  revision: f5ed86fdb63ff79a03f25ed560a3289fc9eebbb3
+  revision: 402f2a2bb64abc33aca8360e96d4b4bc4c1d809c
   specs:
     hyper-kitten-meow (0.1.3)
       acts_as_list
@@ -158,7 +158,7 @@ GEM
       racc (~> 1.4)
     pagy (5.10.1)
       activesupport
-    pg (1.4.4)
+    pg (1.4.5)
     propshaft (0.6.4)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
