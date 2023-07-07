@@ -189,7 +189,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
-    rails_stdout_logging (0.0.5)
     railties (7.0.4)
       actionpack (= 7.0.4)
       activesupport (= 7.0.4)
@@ -242,7 +241,6 @@ DEPENDENCIES
   propshaft
   puma (~> 5.0)
   rails (~> 7.0.4)
-  rails_stdout_logging
   simple_form
   tzinfo-data
   web-console
