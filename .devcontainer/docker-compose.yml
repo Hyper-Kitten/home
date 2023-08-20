@@ -1,11 +1,9 @@
-version: '3'
-
 services:
   db:
     image: 'postgres:15-alpine'
     environment:
-      POSTGRES_USER: kitten
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: hyper
+      POSTGRES_PASSWORD: kitten
     ports:
       - '5432:5432'
     volumes:
@@ -15,22 +13,26 @@ services:
     depends_on:
       - 'db'
       - 'cssbundler'
-    build: .
+    build:
+      context: ..
+      dockerfile: ./.devcontainer/Dockerfile
     env_file:
       - '.env'
     ports:
       - '3000:3000'
     volumes:
-      - '.:/app'
+      - '..:/app'
 
   cssbundler:
-    build: .
+    build:
+      context: ..
+      dockerfile: ./.devcontainer/Dockerfile
     environment:
       - NODE_ENV=development
       - RAILS_ENV=development
     command: yarn build:css --watch
     volumes:
-      - '.:/app'
+      - '..:/app'
 
 volumes:
   pgdata:

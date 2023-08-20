@@ -104,6 +104,8 @@ GEM
     debug (1.6.2)
       irb (>= 1.3.6)
       reline (>= 0.3.1)
+    dockerfile-rails (1.5.2)
+      rails
     erubi (1.11.0)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -233,6 +235,7 @@ DEPENDENCIES
   annotate
   cssbundling-rails
   debug
+  dockerfile-rails
   haml-rails
   hyper-kitten-meow!
   image_processing (~> 1.2)
