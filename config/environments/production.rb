@@ -86,5 +86,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.hosts << "hyperkitten.org"
 
+  # For healthchecks
+  config.hosts << "localhost"
+
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || ENV['RENDER'].present?
 end
